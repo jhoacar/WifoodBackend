@@ -1,0 +1,155 @@
+"""
+	COMANDOS A INICIAR EL SISTEMA!!!!!
+
+->Deberemos tener a disposicion un Pendrive o Memoria FLASH con almenos dos particiones:
+
+  *)Una primera particion formateada a swap, una breve explicacion:
+		
+		El swap es un espacio de intercambio, que bien puede ser una partición lógica en el disco o simplemente un archivo.
+ 		En lugar de utilizar espacio en memoria RAM, el swap utiliza espacio en disco duro para almacenar datos temporales, reduciendo así el uso de la RAM.
+ 		El conjunto combinado de memoria RAM y swap crean una memoria virtual mayor a la que trae el ordenador por defecto.
+ 		Así, el Kernel de Linux puede ejecutar procesos que requieren de más memoria de la que se encuentra físicamente disponible.
+
+   (Yo he usado 2GB en esta particion)
+  
+  *)Una segunda particion formateada a ext4, puede ser cualquier otro formato pero que sea adaptado a linux,
+    es decir, ext2 o ext3
+
+		Esta particion sera la encargada de almacenar todo el sistema operativo con los archivos incluidos
+			
+   (Yo he usado 2GB para esta particion y formateado en ext4, es el mas reciente)
+	
+  *)He usado una tercera particion formateada en exFAT para poder ser puente de comunicacion entre este entorno Linux y el de Windows
+	
+   (De la memoria FLASH usada le formatee el espacio disponible en esta particion)
+
+->Procederemos a realizar el montaje de todo el sistema en la memoria FLASH
+
+INSTALAMOS TODOS LOS PAQUETES PARA EL MONTAJE
+
+opkg update &&  opkg install block-mount kmod-fs-ext4 kmod-usb-storage kmod-usb-ohci kmod-usb-uhci e2fsprogs fdisk nano
+
+//La opcion de instalar el paquete nano, puede realizar o sino utilizar el editor "vi"
+
+COMENZAMOS:
+
+-> Ejecutamos el comando : "block info"
+		Aparecera todas las particiones de los discos que pudo detectar,	
+		aparte de las particiones ya del sistema apareceran las de la memoria flash en /dev/sda*	
+				
+				/dev/sda1: swap 
+				/dev/sda2: ext4 para Almacenamiento
+				/dev/sda3: ext4 para Extroot
+
+-> Procederemos a realizar el montaje de la particion del almacenamiento de nuestro sistema: "mount -t ext4 /dev/sda3 /mnt"
+
+-> Creamos el directorio donde temporalmente se montara la copia de nuestro sistema: "mkdir /tmp/cproot" 
+
+-> Realizamos el montaje de todo el sistema en el directorio temporal creado: "mount --bind / /tmp/cproot"
+
+ 	No confundir con los enlaces simbolicos, los montajes "bind" (bind mounts) de Linux 
+	permiten montar una ruta del sistema de archivos en otra ubicación, es decir, 
+	hacen que dos rutas vayan al mismo directorio, en otras palabras, si modifico algo de una carpeta le afectara a la otra,
+	(Es importante aclarar que apartir de aca no podes dirigirte a otro directorio, o hacer alguna otra accion,
+	 ya que afectarias luego el montaje en la unidad flash, tipico error que aparece de BusyBox).
+
+->Procederemos entonces a realizar la  compresion de toda la carpeta de nuestro sistema 
+  y luego de ello descomprimirla en la unidad flash montada al inicio en la carpeta de montaje "/mnt": "tar -C /tmp/cproot -cvf - . | tar -C /mnt -xvf -"
+
+	Comenzara a mostrar en la pantalla todos los ficheros comprimidos y descompridos en la memoria flash
+
+->Evitamos que el procesador se detenga de manera inusual: "sync"
+
+	El núcleo mantiene datos en memoria para evitar  hacer  lecturas  y  escrituras  de  disco
+       (relativamente  lentas). Esto mejora el rendimiento pero, si el ordenador falla, se pueden
+       perder datos o el sistema de ficheros se puede corromper como resultado del  fallo.   sync
+       asegura que cualquier cosa que haya en memoria sea escrita en disco.
+
+->Por ultimo, ya teniendo todo el montaje hecho de nuestro sistema en la unidad FLASH, lo desmontamos: "umount /mnt"
+
+->Desmontamos el montaje bind del inicio de la carpeta /tmp/cproot: "umount /tmp/cproot"
+  
+->Como ya estamos con todas las configuraciones previas, solo falta configurar al sistema para que cuando arranque,
+  lo primero que deba leer, sea directamente de la memoria FLASH, para ello realizamos el montaje de la unidad: "block detect > /etc/config/fstab"
+	
+	El comando block detect devolvera la configuracion de montaje y lo almacenaremos en el fichero ubicado en /etc/config/fstab
+
+->Procederemos entonces a realizar la configuracion para el montaje de nuestra unidad editando el archivo: "nano /etc/config/fstab" o "vi /etc/config/fstab"
+
+config 'global'
+        option  anon_swap       '0'
+        option  anon_mount      '0'
+        option  auto_swap       '1'
+        option  auto_mount      '1'
+        option  delay_root      '5'
+        option  check_fs        '0'
+
+config 'swap'
+        option  device  '/dev/sda1'
+        option  enabled '1'
+
+config 'mount'
+        option  target  '/mnt/sda2'
+        option  uuid    '4fff9bec-c03d-cf01-4027-9becc03dcf01'
+        option  enabled '1'
+
+config 'mount'
+        option  target  '/overlay'
+        option  uuid    'f8d35f74-c13d-cf01-d080-5b74c13dcf01'
+        option  enabled '1'
+
+Al abrir aparecera la configuracion deseada, directamente, la option target sera la carpeta de montaje,
+por lo cual al solo establecer que se monte en /overlay la particion con el formato ext4 y el sistema ya copiado,
+se estableceria el inicio del sistema pero se tendria que ajustar con la option enabled 1 al igual que la particion swap
+
+->Por ultimo quedaria reiniciar nuestro sistema: "reboot"
+
+
+->Al tener reiniciado el sistema, todo empezara de cero, por lo tanto deberemos ingresar de nuevo y configurar la conexion a internet.
+
+Comenzaremos a instalar los paquetes correspondientes para el portal cautivo:
+
+
+opkg update &&  opkg install block-mount kmod-fs-ext4 kmod-fs-exfatkmod-usb-storage kmod-usb-ohci kmod-usb-uhci e2fsprogs fdisk nano lsof python3 python3-flask python3-pymysql
+
+
+block-mount 
+kmod-fs-ext4 
+kmod-fs-exfat
+kmod-usb-storage 
+kmod-usb-ohci 
+kmod-usb-uhci 
+e2fsprogs 
+fdisk 
+nano 
+lsof  (Para ver los procesos asociados al puerto con "lsof -t -i:PORT)
+python3
+python3-flask
+python3-pymysql
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
