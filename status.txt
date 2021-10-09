@@ -1,2 +1,161 @@
 
 ---Iniciando el SERVIDOR--
+Cliente a Autorizar: {'username': 'jhoan', 'password': 'carrero'}
+Conectando a MySQL
+Conexion exitosa
+Verificacion: Conexion Exitosa
+Cliente a Autorizar: {'username': 'jhoan', 'password': 'carrero'}
+Conectando a MySQL
+Cliente a Autorizar: {'username': 'jhoan', 'password': 'carrero'}
+Conectando a MySQL
+Cliente a Autorizar: {'username': 'jhoan', 'password': 'carrero'}
+Conectando a MySQL
+Conexion exitosa
+Conexion exitosa
+Conexion exitosa
+Verificacion: Conexion Exitosa
+Cliente a Autorizar: {'username': 'jhoan', 'password': 'carrero'}
+Conectando a MySQL
+Verificacion: Conexion Exitosa
+Verificacion: Conexion Exitosa
+Cliente a Autorizar: {'username': 'jhoan', 'password': 'carrero'}
+Cliente a Autorizar: {'username': 'jhoan', 'password': 'carrero'}
+Conectando a MySQL
+Conectando a MySQL
+Conexion exitosa
+Conexion exitosa
+Conexion exitosa
+Verificacion: Conexion Exitosa
+Cliente a Autorizar: {'username': 'jhoan', 'password': 'carrero'}
+Verificacion: Conexion Exitosa
+Verificacion: Conexion Exitosa
+Conectando a MySQL
+Cliente a Autorizar: {'username': 'jhoan', 'password': 'carrero'}
+Conectando a MySQL
+Conexion exitosa
+Verificacion: Conexion Exitosa
+Cliente a Autorizar: {'username': 'jhoan', 'password': 'carrero'}
+Conectando a MySQL
+Conexion exitosa
+Verificacion: Conexion Exitosa
+Cliente a Autorizar: {'username': 'jhoan', 'password': 'carrero'}
+Conectando a MySQL
+Conexion exitosa
+Verificacion: Conexion Exitosa
+Cliente a Autorizar: {'username': 'jhoan', 'password': 'carrero'}
+Conectando a MySQL
+Cliente a Autorizar: {'username': 'jhoan', 'password': 'carrero'}
+Conectando a MySQL
+Cliente a Autorizar: {'username': 'jhoan', 'password': 'carrero'}
+Conectando a MySQL
+Conexion exitosa
+Conexion exitosa
+Conexion exitosa
+Verificacion: Conexion Exitosa
+Cliente a Autorizar: {'username': 'jhoan', 'password': 'carrero'}
+Conectando a MySQL
+Verificacion: Conexion Exitosa
+Cliente a Autorizar: {'username': 'jhoan', 'password': 'carrero'}
+Conectando a MySQL
+Verificacion: Conexion Exitosa
+Cliente a Autorizar: {'username': 'jhoan', 'password': 'carrero'}
+Conectando a MySQL
+Conexion exitosa
+Conexion exitosa
+Conexion exitosa
+Verificacion: Conexion Exitosa
+Cliente a Autorizar: {'username': 'jhoan', 'password': 'carrero'}
+Conectando a MySQL
+Verificacion: Conexion Exitosa
+Verificacion: Conexion Exitosa
+Cliente a Autorizar: {'username': 'jhoan', 'password': 'carrero'}
+Conectando a MySQL
+Conexion exitosa
+Verificacion: Conexion Exitosa
+Cliente a Autorizar: {'username': 'jhoan', 'password': 'carrero'}
+Conectando a MySQL
+Python: (2003, "Can't connect to MySQL server on 'sql10.freesqldatabase.com' (timed out)")
+Verificacion: Contrasena Invalida
+Conexion exitosa
+Verificacion: Conexion Exitosa
+Cliente a Autorizar: {'username': 'jhoan', 'password': 'carrero'}
+Conectando a MySQL
+Conexion exitosa
+Verificacion: Conexion Exitosa
+Conexion exitosa
+Verificacion: Conexion Exitosa
+Cliente a Autorizar: {'username': 'jhoan', 'password': 'carrero'}
+Conectando a MySQL
+Conexion exitosa
+Verificacion: Conexion Exitosa
+Cliente a Autorizar: {'username': 'jhoan', 'password': 'carrero'}
+Conectando a MySQL
+Conexion exitosa
+Verificacion: Conexion Exitosa
+Cliente a Autorizar: {'username': 'jhoan', 'password': 'carrero'}
+Conectando a MySQL
+Conexion exitosa
+Verificacion: Conexion Exitosa
+Cliente a Autorizar: {'username': 'jhoan', 'password': 'carrero'}
+Conectando a MySQL
+Conexion exitosa
+Verificacion: Conexion Exitosa
+Cliente a Autorizar: {'username': 'jhoan', 'password': 'carrero'}
+Conectando a MySQL
+Conexion exitosa
+Verificacion: Conexion Exitosa
+Cliente a Autorizar: {'username': 'jhoan', 'password': 'carrero'}
+Conectando a MySQL
+Conexion exitosa
+Verificacion: Conexion Exitosa
+Cliente a Autorizar: {'username': 'jhoan', 'password': 'carrero'}
+Conectando a MySQL
+Conexion exitosa
+Verificacion: Conexion Exitosa
+Cliente a Autorizar: {'username': 'jhoan', 'password': 'carrero'}
+Cliente a Autorizar: {'username': 'jhoan', 'password': 'carrero'}
+Cliente a Autorizar: {'username': 'jhoan', 'password': 'carrero'}
+Conectando a MySQL
+Conectando a MySQL
+Conectando a MySQL
+Conexion exitosa
+Conexion exitosa
+Conexion exitosa
+Verificacion: Conexion Exitosa
+Verificacion: Conexion Exitosa
+Verificacion: Conexion Exitosa
+Cliente a Autorizar: {'username': 'jhoan', 'password': 'carrero'}
+Cliente a Autorizar: {'username': 'jhoan', 'password': 'carrero'}
+Conectando a MySQL
+Conectando a MySQL
+Conectando a MySQL
+Conexion exitosa
+Conexion exitosa
+Conexion exitosa
+Verificacion: Conexion Exitosa
+Verificacion: Conexion Exitosa
+Verificacion: Conexion Exitosa
+Cliente a Autorizar: {'username': 'jhoan', 'password': 'carrero'}
+Conectando a MySQL
+Cliente a Autorizar: {'username': 'jhoan', 'password': 'carrero'}
+Conectando a MySQL
+Conexion exitosa
+Conexion exitosa
+Verificacion: Conexion Exitosa
+Cliente a Autorizar: {'username': 'jhoan', 'password': 'carrero'}
+Conectando a MySQL
+Verificacion: Conexion Exitosa
+Cliente a Autorizar: {'username': 'jhoan', 'password': 'carrero'}
+Conectando a MySQL
+Conexion exitosa
+Conexion exitosa
+Verificacion: Conexion Exitosa
+Verificacion: Conexion Exitosa
+Cliente a Autorizar: {'username': 'jhoan', 'password': 'carrero'}
+Conectando a MySQL
+Conexion exitosa
+Verificacion: Conexion Exitosa
+Cliente a Autorizar: {'username': 'jhoan', 'password': 'carrero'}
+Conectando a MySQL
+Conexion exitosa
+Verificacion: Conexion Exitosa
