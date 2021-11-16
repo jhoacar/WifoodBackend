@@ -1,0 +1,14 @@
+tpl
+hornet> printenv
+hornet> setenv ipaddr 192.168.1.1
+hornet> setenv serverip 192.168.1.2
+hornet> tftpboot 0x80000000 mr3020v1_usb.bin
+hornet> erase 0x9f020000 +0x3c0000
+hornet> cp.b 0x80000000 0x9f020000 0x3c0000
+hornet> bootm 9f020000
+
+mkdir /tmp/cproot
+mount --bind / /tmp/cproot
+tar -C /tmp/cproot -cvf - . | tar -C /mnt -xvf -
+sync ; umount /mnt
+umount /tmp/cproot

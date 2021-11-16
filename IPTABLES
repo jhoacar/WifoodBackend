@@ -1,0 +1,45 @@
+# Put your custom commands here that should be executed once
+# the system init finished. By default this file does nothing.
+
+#Esto redirecciona todas las peticiones HTTP y HTTPS hacia el servidor
+
+iptables -A FORWARD -i br-lan -p tcp --dport 443 -d 142.250.79.78 -j ACCEPT
+iptables -A FORWARD -i br-lan -p tcp --dport 443 -d 142.250.79.74 -j ACCEPT
+iptables -A FORWARD -i br-lan -p tcp --dport 443 -d 142.250.79.67 -j ACCEPT
+iptables -A FORWARD -i br-lan -p tcp --dport 443 -d 142.250.79.110 -j ACCEPT
+iptables -A FORWARD -i br-lan -p tcp --dport 443 -d 142.250.79.138 -j ACCEPT
+iptables -A FORWARD -i br-lan -p tcp --dport 443 -d 142.250.79.145 -j ACCEPT
+iptables -A FORWARD -i br-lan -p tcp --dport 443 -d 142.250.219.195 -j ACCEPT
+iptables -A FORWARD -i br-lan -p tcp --dport 443 -d 142.250.79.164 -j ACCEPT
+
+
+iptables -A FORWARD -i br-lan -p tcp --dport 443 -d 172.217.173.170 -j ACCEPT
+iptables -A FORWARD -i br-lan -p tcp --dport 443 -d 172.217.173.174 -j ACCEPT
+iptables -A FORWARD -i br-lan -p tcp --dport 443 -d 172.217.162.238 -j ACCEPT
+iptables -A FORWARD -i br-lan -p tcp --dport 443 -d 172.217.172.67 -j ACCEPT
+iptables -A FORWARD -i br-lan -p tcp --dport 443 -d 172.217.173.129 -j ACCEPT
+iptables -A FORWARD -i br-lan -p tcp --dport 443 -d 172.217.29.202 -j ACCEPT
+iptables -A FORWARD -i br-lan -p tcp --dport 443 -d 172.217.173.234 -j ACCEPT
+
+iptables -A FORWARD -i br-lan -p tcp --dport 443 -d 216.58.202.110 -j ACCEPT
+iptables -A FORWARD -i br-lan -p tcp --dport 443 -d 216.58.202.106 -j ACCEPT
+
+
+iptables -A FORWARD -i br-lan -j DROP
+
+iptables -t nat -A PREROUTING -i br-lan -p tcp --dport 80 -j DNAT --to-destination 192.168.1.1:80
+
+
+#Estas son las rutas de redireccionamiento para habilitar el portal cautivo
+# /library/test/success.html  #APPLE
+# /hotspot-detect.html          #APPLE
+# /canonical.html                 #WINDOWS
+# /connecttest.txt                #WINDOWS
+# /ncc.txt                            #WINDOWS
+# /generate_204                #ANDROID
+# /gen_204                        #ANDROID
+
+#Este script monta al inicio el USB si lo encuentra
+#block detect > /etc/config/fstab && uci set fstab.@mount[0].target='/mnt' && uc
+
+exit 0
